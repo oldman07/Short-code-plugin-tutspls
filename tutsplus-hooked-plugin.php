@@ -40,13 +40,13 @@ add_action( 'tutsplus_after_content', 'tutsplus_cta_below_posts' );
 /*********************************************************************************
 Simple shortcode
 *********************************************************************************/
-function tutsplus_cta_simple() { 
+function tutsplus_cta_simple($atts,$content = null) { 
 	
 	ob_start();
 	?>
 	
 	<div class="shortcode cta">
-		<a href="#">For more posts like this in your inbox every week, join our mailing list.</a>
+		<?php echo $content." to do"; ?>
 	</div>
 	
 	<?php 
