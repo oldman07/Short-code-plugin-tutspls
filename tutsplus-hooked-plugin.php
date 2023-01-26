@@ -41,12 +41,15 @@ add_action( 'tutsplus_after_content', 'tutsplus_cta_below_posts' );
 Simple shortcode
 *********************************************************************************/
 function tutsplus_cta_simple($atts,$content = null) { 
-	
+	$atts = shortcode_atts( array(
+		'text' => 'this is link',				//these are default values if user dont enter anything this will display.
+		'link' => '#'
+	), $atts, 'cta' );
 	ob_start();
 	?>
 	
 	<div class="shortcode cta">
-		<?php echo $content." to do"; ?>
+		<?php echo '<a href="' .$atts['link']. '">'.$atts['text'].'</a>' ?>
 	</div>
 	
 	<?php 
