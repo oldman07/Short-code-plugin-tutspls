@@ -20,7 +20,8 @@ function tutsplus_hook_plugin_enqueue_styles() {
 	
 }
 add_action( 'wp_enqueue_scripts', 'tutsplus_hook_plugin_enqueue_styles' );
- 
+define('PLUGIN_PATH', plugin_dir_path(__FILE__));
+include PLUGIN_PATH."inc/admin_menu.php";
 /*********************************************************************************
 CTA box
 *********************************************************************************/
@@ -36,6 +37,9 @@ function tutsplus_cta_below_posts() {
 	
 }
 add_action( 'tutsplus_after_content', 'tutsplus_cta_below_posts' );
+
+
+
 
 /*********************************************************************************
 Simple shortcode
@@ -57,3 +61,7 @@ function tutsplus_cta_simple($atts,$content = null) {
 		
 }
 add_shortcode( 'cta', 'tutsplus_cta_simple' );
+
+
+
+?>
